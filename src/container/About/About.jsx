@@ -1,14 +1,30 @@
-import React from 'react';
 import { motion } from 'framer-motion';
+import { HiChartBar, HiCpuChip, HiPresentationChartLine, HiCircleStack } from 'react-icons/hi2';
 
 import { AppWrap, MotionWrap } from '../../wrapper';
-import { images } from '../../constants';
 
-const abouts = [
-  { title: 'Data Analysis', description: 'I explore and interpret complex datasets to uncover meaningful insights and trends.', imgUrl: images.about01 },
-  { title: 'Machine Learning', description: 'I build predictive models and intelligent systems using modern ML algorithms.', imgUrl: images.about02 },
-  { title: 'Data Visualization', description: 'I turn raw data into compelling visual stories with tools like Matplotlib and Power BI.', imgUrl: images.about03 },
-  { title: 'Statistical Modeling', description: 'I apply statistical methods to analyze patterns and make data-driven decisions.', imgUrl: images.about04 },
+
+const expertise = [
+  {
+    icon: HiChartBar,
+    title: 'Credit Risk Modeling',
+    desc: 'PD models using logistic regression and XGBoost, with multicollinearity analysis, feature selection and sign testing for regulatory compliance.',
+  },
+  {
+    icon: HiCpuChip,
+    title: 'Machine Learning',
+    desc: 'End-to-end ML pipelines — from EDA and feature engineering to model training, validation and real-time monitoring in production.',
+  },
+  {
+    icon: HiPresentationChartLine,
+    title: 'Time Series & Forecasting',
+    desc: 'Macroeconomic trend modeling with ARIMAX, Vasicek and LSTM architectures for portfolio performance and market condition forecasting.',
+  },
+  {
+    icon: HiCircleStack,
+    title: 'Data Engineering',
+    desc: 'SQL-based data pipelines, stored procedures and automated reporting workflows connecting raw data to business dashboards.',
+  },
 ];
 
 const About = () => {
@@ -16,32 +32,37 @@ const About = () => {
     <>
       <h2 className="head-text">From Raw <span>Data</span> to <br />Real <span>Impact</span></h2>
 
-      <div className="app__about-intro">
-        <p>
-          I'm a data scientist focused on transforming raw data into business value.
-          With experience in the banking sector, I work on credit risk modeling,
-          customer behavior analytics, and macroeconomic time series forecasting.
-        </p>
-        <p>
-          I design end-to-end analytical pipelines — from data preprocessing and
-          feature engineering to statistical analysis, model building, and validation.
-          My priority is building explainable models aligned with real-world business standards.
-        </p>
-      </div>
-      <div className="app__profiles">
-        {abouts.map((about, index) => (
-          <motion.div
-            whileInView={{ opacity: 1 }}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5, type: 'tween' }}
-            className="app__profile-item"
-            key={about.title + index}
-          >
-            <img src={about.imgUrl} alt={about.title} />
-            <h2 className="bold-text" style={{ marginTop: 20 }}>{about.title}</h2>
-            <p className="p-text" style={{ marginTop: 10 }}>{about.description}</p>
-          </motion.div>
-        ))}
+      <div className="app__about-layout">
+        <div className="app__about-left">
+          <p className="app__about-bio">
+            I'm a data scientist at DenizBank, focused on credit risk intelligence
+            and predictive analytics. I build models that inform real lending decisions —
+            from early warning systems to behavioral PD and macroeconomic forecasting.
+          </p>
+          <p className="app__about-bio">
+            My work sits at the intersection of statistical rigor and business impact:
+            explainable models, robust validation, and automated pipelines that bring
+            data to decision-makers.
+          </p>
+         
+        </div>
+
+        <div className="app__about-cards">
+          {expertise.map((item, i) => (
+            <motion.div
+              className="app__about-card"
+              key={item.title}
+              whileInView={{ opacity: [0, 1], y: [20, 0] }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+            >
+              <div className="app__about-card-icon">
+                <item.icon />
+              </div>
+              <h4>{item.title}</h4>
+              <p>{item.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </>
   );

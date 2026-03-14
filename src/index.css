@@ -429,13 +429,111 @@
 /* About */
 .app__about { flex: 1 1; flex-direction: column; width: 100%; }
 
-.app__profiles { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 2rem; }
-.app__profile-item { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; width: 190px; margin: 2rem; }
-.app__profile-item img { width: 100%; height: 170px; border-radius: 15px; object-fit: cover; }
+.app__about-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  width: 85%;
+  margin-top: 2.5rem;
+  align-items: flex-start;
+}
 
-@media screen and (min-width: 2000px) {
-  .app__profile-item { width: 370px; margin: 2rem 4rem; }
-  .app__profile-item img { height: 320px; }
+@media screen and (max-width: 900px) {
+  .app__about-layout { flex-direction: column; width: 100%; gap: 2rem; }
+}
+
+/* Sol: bio + stats */
+.app__about-left {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 300px;
+  gap: 1rem;
+}
+
+.app__about-bio {
+  font-size: 0.92rem;
+  color: var(--gray-color);
+  line-height: 1.75;
+}
+
+.app__about-stats {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  margin-top: .75rem;
+  padding-top: 1.25rem;
+  border-top: 1.5px solid rgba(0,0,0,0.07);
+}
+
+.app__about-stat {
+  display: flex;
+  align-items: baseline;
+  gap: .75rem;
+}
+
+.app__about-stat-value {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  line-height: 1;
+}
+
+.app__about-stat-label {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--gray-color);
+}
+
+/* Sağ: uzmanlık kartları */
+.app__about-cards {
+  flex: 1 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+@media screen and (max-width: 600px) {
+  .app__about-cards { grid-template-columns: 1fr; }
+}
+
+.app__about-card {
+  background-color: var(--white-color);
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  transition: transform .2s, box-shadow .2s;
+}
+
+.app__about-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+}
+
+.app__about-card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgba(255,107,0,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--secondary-color);
+}
+
+.app__about-card h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--black-color);
+}
+
+.app__about-card p {
+  font-size: 0.82rem;
+  color: var(--gray-color);
+  line-height: 1.6;
 }
 
 /* Work */
