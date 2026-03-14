@@ -34,7 +34,7 @@ exports.handler = async (event) => {
         { role: 'system', content: langInstruction },
         ...messages,
       ],
-      max_tokens: 180,
+      max_tokens: 120,
       temperature: 0.5,
     });
 
