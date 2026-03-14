@@ -18,8 +18,9 @@ exports.handler = async (event) => {
       return { statusCode: 400, body: JSON.stringify({ error: 'Geçersiz istek.' }) };
     }
 
-    const irfanContext = process.env.IRFAN_CONTEXT;
-    if (!irfanContext) {
+    const irfanRules = process.env.IRFAN_RULES;
+    const irfanKnowledge = process.env.IRFAN_CONTEXT;
+    if (!irfanRules || !irfanKnowledge) {
       return { statusCode: 500, body: JSON.stringify({ error: 'Context yapılandırılmamış.' }) };
     }
 
@@ -30,7 +31,8 @@ exports.handler = async (event) => {
     const completion = await groq.chat.completions.create({
       model: 'llama-3.1-8b-instant',
       messages: [
-        { role: 'system', content: irfanContext },
+        { role: 'system', content: irfanRules },
+        { role: 'system', content: irfanKnowledge },
         { role: 'system', content: langInstruction },
         ...messages,
       ],

@@ -9,7 +9,7 @@ app.use(express.json());
 
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
-const irfanContext = require('./src/data/irfanContext');
+const { irfanRules, irfanKnowledge } = require('./src/data/irfanContext');
 
 const isTurkish = (text) =>
   /[çğışöüÇĞİŞÖÜ]/.test(text) ||
@@ -30,7 +30,8 @@ app.post('/api/chat', async (req, res) => {
     const completion = await groq.chat.completions.create({
       model: 'llama-3.1-8b-instant',
       messages: [
-        { role: 'system', content: irfanContext },
+        { role: 'system', content: irfanRules },
+        { role: 'system', content: irfanKnowledge },
         { role: 'system', content: langInstruction },
         ...messages,
       ],
