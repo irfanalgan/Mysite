@@ -8,22 +8,22 @@ const expertise = [
   {
     icon: HiChartBar,
     title: 'Credit Risk Modeling',
-    desc: 'PD models using logistic regression and XGBoost, with multicollinearity analysis, feature selection and sign testing for regulatory compliance.',
+    desc: 'Corporate PD models built on financial statement data — logistic regression with multicollinearity analysis, sign testing and Gini-based validation. Monthly automated monitoring via stored procedures.',
   },
   {
     icon: HiCpuChip,
-    title: 'Machine Learning',
-    desc: 'End-to-end ML pipelines — from EDA and feature engineering to model training, validation and real-time monitoring in production.',
+    title: 'Early Warning Systems',
+    desc: 'End-to-end EWS pipelines covering 20M+ customers across retail, SME and agriculture segments. XGBoost & LightGBM models predicting 30/60/90-day default horizons from behavioral and transactional data.',
   },
   {
     icon: HiPresentationChartLine,
     title: 'Time Series & Forecasting',
-    desc: 'Macroeconomic trend modeling with ARIMAX, Vasicek and LSTM architectures for portfolio performance and market condition forecasting.',
+    desc: 'Macroeconomic models using OLS and ARIMAX with 15+ economic indicators (CDS, bond yields, FX, CPI, GDP). Stationarity, cointegration and scenario analysis applied throughout.',
   },
   {
     icon: HiCircleStack,
     title: 'Data Engineering',
-    desc: 'SQL-based data pipelines, stored procedures and automated reporting workflows connecting raw data to business dashboards.',
+    desc: 'SQL pipelines, stored procedures and job schedulers powering automated weekly reporting. Python Dash dashboards for real-time model performance monitoring across live portfolios.',
   },
 ];
 
@@ -35,14 +35,15 @@ const About = () => {
       <div className="app__about-layout">
         <div className="app__about-left">
           <p className="app__about-bio">
-            I'm a data scientist at DenizBank, focused on credit risk intelligence
-            and predictive analytics. I build models that inform real lending decisions —
-            from early warning systems to behavioral PD and macroeconomic forecasting.
+            I'm a data scientist at DenizBank, where my core focus is building corporate
+            PD models and early warning systems that drive real credit decisions.
+            I work across retail, SME and agriculture segments — turning raw financial
+            and behavioral data into production-grade risk models.
           </p>
           <p className="app__about-bio">
             My work sits at the intersection of statistical rigor and business impact:
-            explainable models, robust validation, and automated pipelines that bring
-            data to decision-makers.
+            explainable models, robust validation pipelines, and automated monitoring
+            systems that keep decision-makers ahead of risk.
           </p>
          
         </div>
